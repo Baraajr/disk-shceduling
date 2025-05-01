@@ -18,3 +18,51 @@ def fcfs(requests, head, step_time):
 
     total_seek_time = total_movement * step_time
     return order, total_movement, total_seek_time
+
+
+
+
+def scan_algorithm(requests, head, direction, disk_size, step_time):
+    requests.sort()
+    total_head_movement = 0
+    seek_sequence = []
+
+    if direction == "left":
+        left = [r for r in requests if r < head]
+        right = [r for r in requests if r >= head]
+        
+        left.reverse()
+        for r in left:
+            total_head_movement += abs(head - r)
+            head = r
+            seek_sequence.append(r)
+
+        if right:
+            total_head_movement += head  # move to 0
+            head = 0
+            for r in right:
+                total_head_movement += abs(head - r)
+                head = r
+                seek_sequence.append(r)
+
+    elif direction == "right":
+        left = [r for r in requests if r < head]
+        right = [r for r in requests if r >= head]
+
+        for r in right:
+            total_head_movement += abs(head - r)
+            head = r
+            seek_sequence.append(r)
+
+        if left:
+            total_head_movement += abs((disk_size - 1) - head)
+            head = disk_size - 1
+            left.reverse()
+            for r in left:
+                total_head_movement += abs(head - r)
+                head = r
+                seek_sequence.append(r)
+
+    total_seek_time = total_head_movement * step_time
+
+    return seek_sequence, total_head_movement, total_seek_time
