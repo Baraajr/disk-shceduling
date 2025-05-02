@@ -24,7 +24,7 @@ https://github.com/user-attachments/assets/c8cab0b4-ee17-4acd-a8c1-547d1bae087a
 4. Run the script using a Python interpreter:
 
 ```
-python `main.py`
+python main.py
 ```
 
 5. The program will prompt you to enter:
