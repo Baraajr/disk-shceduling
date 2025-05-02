@@ -2,6 +2,9 @@
 
 This Python program simulates three common disk scheduling algorithms: First-Come, First-Served (FCFS), SCAN (Elevator Algorithm), and C-SCAN (Circular SCAN). It helps visualize and compare the head movement and total seek time for a given set of disk requests.
 
+## Video Tutorial
+https://github.com/user-attachments/assets/c8cab0b4-ee17-4acd-a8c1-547d1bae087a
+
 ## Implemented Algorithms
 
 1. **First-Come, First-Served (FCFS)**: Processes requests in the order they arrive in the queue. Simple but can lead to high head movement.
